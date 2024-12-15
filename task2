@@ -1,0 +1,34 @@
+2. **`TestLoanClass`类（测试`Loan`类）**
+   - **代码**
+   ```java
+   import java.util.Scanner;
+
+   public class TestLoanClass {
+       public static void main(String[] args) {
+           // 创建Scanner对象用于获取用户输入
+           Scanner input = new Scanner(System.in);
+
+           // 获取年利率
+           System.out.print("Enter annual interest rate, for example, 8.25:");
+           double annualInterestRate = input.nextDouble();
+
+           // 获取贷款年限
+           System.out.print("Enter number of years as an integer: ");
+           int numberOfYears = input.nextInt();
+
+           // 获取贷款金额
+           System.out.print("Enter loan amount, for example, 120000.95: ");
+           double loanAmount = input.nextDouble();
+
+           // 关闭Scanner对象
+           input.close();
+
+           // 创建Loan对象
+           Loan loan = new Loan(annualInterestRate, numberOfYears, loanAmount);
+
+           // 显示贷款日期、每月还款金额和总还款金额
+           System.out.printf("The loan was created on %s\n", loan.getLoanDate());
+           System.out.printf("The monthly payment is %.2f\n", loan.getMonthlyPayment());
+           System.out.printf("The total payment is %.2f\n", loan.getTotalPayment());
+       }
+   }
