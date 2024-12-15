@@ -1,0 +1,45 @@
+public class Course {
+    private String courseName;
+    private String[] students = new String[100];
+    private int numberOfStudents;
+
+    // 构造函数，创建课程时指定课程名称
+    public Course(String courseName) {
+        this.courseName = courseName;
+    }
+
+    // 添加学生到课程
+    public void addStudent(String student) {
+        students[numberOfStudents] = student;
+        numberOfStudents++;
+    }
+
+    // 从课程中删除学生
+    public void dropStudent(String student) {
+        for (int i = 0; i < numberOfStudents; i++) {
+            if (students[i].equals(student)) {
+                // 移动学生数组元素
+                for (int k = i + 1; k < numberOfStudents; k++) {
+                    students[k - 1] = students[k];
+                }
+                numberOfStudents--;
+                break;
+            }
+        }
+    }
+
+    // 获取课程名称
+    public String getCourseName() {
+        return courseName;
+    }
+
+    // 获取课程中的学生数组
+    public String[] getStudents() {
+        return students;
+    }
+
+    // 获取课程中的学生数量
+    public int getNumberOfStudents() {
+        return numberOfStudents;
+    }
+}
